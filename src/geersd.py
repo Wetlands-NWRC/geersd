@@ -68,3 +68,8 @@ class Sentinel2(ee.ImageCollection):
         )
 
         return image.updateMask(mask)
+
+
+class AlosPalsar(ee.ImageCollection):
+    def __init__(self):
+        super().__init__('JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH')
