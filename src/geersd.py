@@ -72,4 +72,4 @@ class Sentinel2(ee.ImageCollection):
 
 class AlosPalsar(ee.ImageCollection):
     def __init__(self):
-        super().__init__('JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH')
+        super().__init__("JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH")
