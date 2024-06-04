@@ -1,0 +1,10 @@
+name: rsd
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - black
+  - geemap
+  - geopandas
+  - ipykernel
+prefix: /home/hammy97/miniconda3/envs/rsd
