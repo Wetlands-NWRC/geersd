@@ -40,7 +40,7 @@ class Sentinel2(ee.ImageCollection):
     @classmethod
     def surface_reflectance(cls):
         return cls("COPERNICUS/S2_SR_HARMONIZED")
-    
+
     @classmethod
     def top_of_atmosphere(cls):
         return cls("COPERNICUS/S2_HARMONIZED")
@@ -49,14 +49,14 @@ class Sentinel2(ee.ImageCollection):
         super().__init__(args)
 
     def filterCloud(self, percent: float):
-        return self.filter(ee.Filter.lte('CLOUDY_PIXEL_PERCENTAGE', percent))
+        return self.filter(ee.Filter.lte("CLOUDY_PIXEL_PERCENTAGE", percent))
 
     def applyCloudMask(self):
         return self.map(self.cloud_mask)
-    
+
     @staticmethod
     def cloud_mask(image: ee.Image):
-        qa = image.select('QA60')
+        qa = image.select("QA60")
         # Bits 10 and 11 are clouds and cirrus, respectively.
         cloud_bit_mask = 1 << 10
         cirrus_bit_mask = 1 << 11
