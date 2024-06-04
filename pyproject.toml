@@ -1,0 +1,8 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "geersd"
+version = "0.1.0"
+authors = [{ name = 'Ryan Hamilton', email = "ryan.hamilton@ec.gc.ca" }]
