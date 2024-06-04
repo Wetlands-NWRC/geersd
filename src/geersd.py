@@ -73,3 +73,10 @@ class Sentinel2(ee.ImageCollection):
 class AlosPalsar(ee.ImageCollection):
     def __init__(self):
         super().__init__("JAXA/ALOS/PALSAR/YEARLY/SAR_EPOCH")
+
+
+class NASADEM(ee.Image):
+    """for more info go to https://developers.google.com/earth-engine/datasets/catalog/NASA_NASADEM_HGT_001?hl=en"""
+
+    def __init__(self):
+        super().__init__("NASA/NASADEM_HGT/001")
