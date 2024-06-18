@@ -7,4 +7,10 @@ dependencies:
   - geemap
   - geopandas
   - ipykernel
+  - ruff
+  - build
+  - pip
+  - pip:
+    - -e .
+
 prefix: /home/hammy97/miniconda3/envs/rsd
