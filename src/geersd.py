@@ -1,5 +1,32 @@
+from __future__ import annotations
 from typing import Any
 import ee
+import geopandas as gpd
+
+
+class RemoteSensingDataset(ee.ImageCollection):
+    """Base class for a class that relates to RSD"""
+
+    def __init__(self, args: Any):
+        super().__init__(args)
+
+    def toFeatureCollection(self) -> ee.FeatureCollection:
+        """Converts the Current Collection to a FeatureCollection copies all properties"""
+        ic_list = self.toList(self.size())
+        f_list = ic_list.map(self.img2features)
+        return ee.FeatureCollection(f_list)
+
+    def toGeoPandasDataFrame(self) -> gpd.GeoDataFrame:
+        return gpd.GeoDataFrame.from_features(
+            self.toFeatureCollection().getInfo()["features"]
+        )
+
+    @staticmethod
+    def img2features(image) -> ee.Feature:
+        image = ee.Image(image)
+        geom = image.geometry()
+        props = image.propertyNames()
+        return ee.Feature(geom, image.toDictionary(props))
 
 
 class Sentinel1(ee.ImageCollection):
