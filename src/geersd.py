@@ -29,7 +29,7 @@ class RemoteSensingDataset(ee.ImageCollection):
         return ee.Feature(geom, image.toDictionary(props))
 
 
-class Sentinel1(ee.ImageCollection):
+class Sentinel1(RemoteSensingDataset):
     def __init__(self, args: Any = None):
         self.args = args or "COPERNICUS/S1_GRD"
         super().__init__(self.args)
