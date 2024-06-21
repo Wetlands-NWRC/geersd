@@ -4,6 +4,6 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "geersd"
-version = "0.1.1"
+version = "0.1.2"
 authors = [{ name = 'Ryan Hamilton', email = "ryan.hamilton@ec.gc.ca" }]
 dependencies = ["earthengine-api"]
